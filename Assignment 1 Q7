@@ -1,0 +1,52 @@
+#include <stdio.h>
+int main() {
+    int choice, number;
+    printf("1. Decimal to Binary\n");
+    printf("2. Binary to Decimal\n");
+    printf("Enter your choice 1 or 2 ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("Enter a decimal number: ");
+        scanf("%d", &number);
+        
+        int binary[40];
+        int index = 0;
+
+        if (number == 0) {
+            printf("Binary: 0\n");
+        } else {
+            while (number > 0) {
+                binary[index] = number % 2;
+                number /= 2;
+                index++;
+            }
+
+            printf("Binary: ");
+            for (int i = index - 1; i >= 0; i--) {
+                printf("%d", binary[i]);
+            }
+            printf("\n");
+        }
+    } else if (choice == 2) {
+        printf("Enter a binary number ");
+        scanf("%d", &number);
+
+        int decimal = 0;
+        int base = 1;
+        int remainder;
+
+        while (number > 0) {
+            remainder = number % 10;
+            decimal += remainder * base;
+            number /= 10;
+            base *= 2;
+        }
+
+        printf("Decimal- %d\n", decimal);
+    } else {
+        printf("Invalid choice!");
+    }
+
+    return 0;
+}
