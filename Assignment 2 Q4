@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    int Marks[7] = {99,96,93,87,99,78,98};
+    int count = 0;
+    for (int i = 0; i < 7; i++) {
+        if (Marks[i] == 99) {
+            count++;
+        }
+    }
+
+    printf("Number of students who scored 99= %d", count);
+    return 0;
+}
