@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int a;
+    int num1, num2;
+
+    scanf("%d", &num1);
+    scanf("%d", &num2);
+    printf("print your choicein 1. addition\n 2. subtraction 3 .multiplication\n 4.division\n 5.log 6.square root");
+    scanf("%d",&a);
+    switch(a){
+        case 1:
+        printf("the sum of numbers=%d", num1+num2); break;
+        case 2:
+        if (num1> num2){
+            printf("the subtraction of numbers %d", num1-num2); }
+        else if (num2>num1){
+        printf("the subtraction of numbers-%d", num2-num1);}break;
+
+        case 3:
+        printf("the product %d", num1* num2); break;
+
+        case 4:
+        printf("the division of numbers=%d", num1/num2);break;
+
+        case 5:
+        printf("the log of number %f", log(num1)); break;
+
+        case 6:
+        printf("the square root of number %f", sqrt(num1)); break;}
+        
+        return 0;}
