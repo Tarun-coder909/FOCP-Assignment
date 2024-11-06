@@ -1,0 +1,53 @@
+#include <stdio.h>
+int main() {
+    int arr[5] = {34,11,12,9,6};
+    int size = 5;
+    int position;
+
+    printf("Array before deletion at front ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    for (int i = 0; i < size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    size--;
+
+    printf("Array after deletion at front ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    printf("Array before deletion at position ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    position = 2;  
+    for (int i = position; i < size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    size--;
+    printf("Array after deletion at position %d ", position);
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    printf("Array before deletion at end ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    size--;
+    printf("Array after deletion at end ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
