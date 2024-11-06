@@ -1,0 +1,71 @@
+#include <stdio.h>
+char board[3][3] = {{' ', ' ', ' '},
+                    {' ', ' ', ' '},
+                    {' ', ' ', ' '}};
+char currentPlayer = 'X';
+int row, col;
+int main() {
+    printf("Player 1 is X and Player 2 is O\n");
+
+    while (1) {
+        printf("the tic tac toe looks like this-");
+        printf("  %c  |  %c  |  %c  \n", board[0][0], board[0][1], board[0][2]);
+        printf("_____|_____|_____\n");
+        printf("     |     |     \n");
+        printf("  %c  |  %c  |  %c  \n", board[1][0], board[1][1], board[1][2]);
+        printf("_____|_____|_____\n");
+        printf("     |     |     \n");
+        printf("  %c  |  %c  |  %c  \n", board[2][0], board[2][1], board[2][2]);
+        printf("     |     |     \n");
+
+        printf("Player %c, enter your move (row and column): ", currentPlayer);
+        scanf("%d %d", &row, &col);
+
+        row -= 1;
+        col -= 1;
+
+        if (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != ' ') {
+            printf("Invalid move, try again\n");
+            continue;
+        }
+
+        board[row][col] = currentPlayer;
+
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+                printf("\nPlayer %c wins!\n", currentPlayer);
+                return 0;
+            }
+            if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+                printf("Player %c wins!\n", currentPlayer);
+                return 0;
+            }
+        }
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+            printf("Player %c wins!\n", currentPlayer);
+            return 0;
+        }
+        if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            printf("Player %c wins!\n", currentPlayer);
+            return 0;
+        }
+
+        int isDraw = 1;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') {
+                    isDraw = 0;
+                    break;
+                }
+            }
+        }
+        if (isDraw) {
+            printf("It's a draw!\n");
+            break;
+        }
+
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+
+    return 0;
+}
