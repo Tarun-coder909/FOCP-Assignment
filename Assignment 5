@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word[] = "coding";
+    int wordLength = strlen(word);
+    char guessedWord[wordLength];
+    char guess;
+    int chances = 3;
+    int correctGuesses = 0;
+
+    for (int i = 0; i < wordLength; i++) {
+        guessedWord[i] = '_';
+    }
+    printf("Guess the word");
+    for (int i = 0; i < wordLength; i++) {
+        printf("%c ", guessedWord[i]);
+    }
+    printf("\n");
+
+    while (chances > 0 && correctGuesses < wordLength) {
+        printf("You have %d chances left\n", chances);
+        printf("Enter a letter to guess: ");
+        scanf(" %c", &guess);
+
+        int correct = 0;
+        for (int i = 0; i < wordLength; i++) {
+            if (word[i] == guess && guessedWord[i] == '_') {
+                guessedWord[i] = guess;
+                correctGuesses++;
+                correct = 1;
+            }
+        }
+
+        if (correct) {
+            printf("Good guess! Current word ");
+            for (int i = 0; i < wordLength; i++) {
+                printf("%c ", guessedWord[i]);
+            }
+            printf("\n");
+        } else {
+            chances--;
+            printf("Incorrect guess! You lose a chance\n");
+        }
+
+        if (correctGuesses == wordLength) {
+            printf("Congratulations! You've guessed the word %s\n", word);
+            break;
+        }
+    }
+
+    if (chances == 0) {
+        printf(" You've been hanged as The correct  word was %s\n", word);
+    }
+    return 0;
+}
