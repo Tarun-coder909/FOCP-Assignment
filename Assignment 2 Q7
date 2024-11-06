@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    int scores[] = {95, 92, 99, 88, 63};
+    for (int i = 0; i < 5; i++) {
+        if (scores[i] % 2 == 0) {
+            printf("Score %d is even\n", scores[i] );
+        } else {
+            printf("Score %d is odd\n", scores[i]);
+        }
+    }
+
+    return 0;
+}
