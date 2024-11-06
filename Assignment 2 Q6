@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main() {
+    int marks[5] = {99,93,99,65,78};
+    int sum=0;
+    int i;
+    int av;
+    for (i=0;i<5;i++){
+        sum=sum+marks[i];
+    }
+    av=sum/5;
+    printf("average of marks=%d",av);
+    return 0;}
